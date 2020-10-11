@@ -65,5 +65,5 @@ for emp in final_empl:
     database.create_employee(emp.first_name, emp.last_name, emp.role, emp.annual_salary, emp.feedback,
                              emp.years_employed, emp.emailAddress)
 
-for emp in final_empl:
-    database.get_employees(emp.emailAddress)
+
+database.get_employees()

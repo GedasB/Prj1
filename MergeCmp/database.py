@@ -38,13 +38,15 @@ def create_employee(first_name: str, last_name: str, role: str, annual_salary: f
         db.execute(query)
 
 
-def get_employees(email: str):
-    query = f"SELECT * FROM Employees WHERE email = {email}"
+def get_employees():
+    query = f"SELECT * FROM Employees"
     with DatabaseContextManager("employees") as db:
-        db.execute(query)
+        data = db.execute(query)
+        for rec in data:
+            print(rec)
 
 
 def delete_employee(email: str):
-    query = f"DELETE FROM Employees WHERE email = {email}"
+    query = f"DELETE FROM Employees WHERE email = {'email'}"
     with DatabaseContextManager("employees") as db:
         db.execute(query)
